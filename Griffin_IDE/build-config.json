@@ -1,0 +1,20 @@
+{
+    "win32": {
+        "target": ["nsis", "portable"],
+        "icon": "images/logo.png",
+        "certificateFile": "griffin-windows-cert.pfx",
+        "publisherName": "Griffin Analytics"
+    },
+    "mac": {
+        "category": "public.app-category.developer-tools",
+        "icon": "images/logo.png",
+        "hardenedRuntime": true,
+        "gatekeeperAssess": false,
+        "entitlements": "resources/darwin/entitlements.plist"
+    },
+    "linux": {
+        "target": ["deb", "rpm", "AppImage"],
+        "icon": "images/logo.png",
+        "category": "Development"
+    }
+}

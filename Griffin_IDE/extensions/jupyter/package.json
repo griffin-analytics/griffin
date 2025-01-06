@@ -1,0 +1,10 @@
+{
+    "contributes": {
+        "configuration": {
+            "jupyter.defaultKernel": "python3",
+            "jupyter.enableAutoStart": true,
+            "jupyter.enableCellToolbar": false,
+            "jupyter.enableNativeInteractiveWindow": true
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "build": {
+        "appId": "com.marketinganalytics.ide",
+        "productName": "Marketing Analytics IDE",
+        "files": [
+            "out/**/*",
+            "extensions/**/*",
+            "resources/**/*"
+        ],
+        "extraResources": [
+            {
+                "from": "node_modules/jupyter-core",
+                "to": "jupyter"
+            }
+        ]
+    }
+}
