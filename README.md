@@ -81,6 +81,10 @@ pip install --force-reinstall git+https://github.com/shawcharles/griffin_kernels
 pip install qtpy pyqt5
 ```
 
+( optional ) Install Jupyter extension to work with Jupyter workbooks (experimental)
+
+pip install --force-reinstall git+https://github.com/shawcharles/griffin-notebook.git
+
 4. Configure VSCode to use the Griffin virtual environment:
    - Press Ctrl+Shift+P and select "Python: Select Interpreter"
    - Choose the interpreter from your Griffin virtual environment (e.g., ./venv/bin/python)
