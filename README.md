@@ -1,2 +1,2 @@
-# Griffin_IDE
-Griffin IDE 
+# Griffin
+
