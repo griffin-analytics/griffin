@@ -1,0 +1,12 @@
+The Griffin Kernels Contributors are composed of:
+
+* Pierre Raybaut <pierre.raybaut@gmail.com> (Original Griffin author)
+* Carlos Cordoba <ccordoba12@gmail.com> (Current Griffin/-Kernels maintainer)
+* All other developers that have committed to the griffin-kernels repository:
+  <https://github.com/griffin-ide/griffin-kernels/graphs/contributors>
+  and contributors listed on the original files in the main griffin repository:
+  <https://github.com/griffin-ide/griffin/blob/48c96725c9/griffinlib/py3compat.py>
+  <https://github.com/griffin-ide/griffin/blob/48c96725c9/griffinlib/widgets/externalshell/start_ipython_kernel.py>
+  <https://github.com/griffin-ide/griffin/blob/48c96725c9/griffinlib/widgets/externalshell/sitecustomize.py>
+  <https://github.com/griffin-ide/griffin/blob/48c96725c9/griffinlib/utils/dochelpers.py>
+  <https://github.com/griffin-ide/griffin/blob/48c96725c9/griffinlib/utils/iofuncs.py>

@@ -1,0 +1,5 @@
+The Griffin Remote Services Contributors are composed of:
+
+* Carlos Cordoba <ccordoba12@gmail.com> (Current Griffin/-Remote Services maintainer)
+* All other developers that have committed to the griffin-remote-services repository:
+  <https://github.com/griffin-ide/griffin-remote-services/graphs/contributors>

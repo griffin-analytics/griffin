@@ -1,0 +1,18 @@
+channels:
+  - conda-forge
+dependencies:
+# Main dependencies
+- pyqt
+- qtpy >=2.0.1
+- traitlets
+- jupyter_core
+- jupyter_client
+- pygments
+- ipykernel
+
+# For testing
+- coveralls
+- flaky
+- pytest
+- pytest-cov
+- pytest-qt

@@ -1,0 +1,13 @@
+services:
+  test-griffin-remote-server:
+    build:
+      context: ./
+      additional_contexts:
+        external-deps: ../../../../external-deps
+      dockerfile: Dockerfile
+    volumes:
+      - "../../../../external-deps/griffin-remote-services:/home/ubuntu/griffin-remote-services"
+      - "../../../../external-deps/griffin-kernels:/home/ubuntu/griffin-kernels"
+    ports:
+      - "22"
+    privileged: true  # Required for /usr/sbin/init
