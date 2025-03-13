@@ -80,10 +80,7 @@ pip install --force-reinstall git+https://github.com/shawcharles/griffin_kernels
 # Install QtPy in your VSCode Python environment
 pip install qtpy pyqt5
 ```
-3.1 ( TODO ) Install Jupyter extension to work with Jupyter workbooks (currently produces an dependency issue)
-```bash
-pip install --force-reinstall git+https://github.com/shawcharles/griffin-notebook.git
-```
+
 
 4. Configure VSCode to use the Griffin virtual environment:
    - Press Ctrl+Shift+P and select "Python: Select Interpreter"
@@ -100,4 +97,11 @@ pip install -r requirements.txt
 pip install git+https://github.com/shawcharles/griffin_kernels.git
 pip install git+https://github.com/shawcharles/pyls-griffin.git
 pip install -e .
+```
+
+---
+
+TODO: Install Jupyter extension to work with Jupyter workbooks (currently produces an dependency issue)
+```bash
+pip install --force-reinstall git+https://github.com/shawcharles/griffin-notebook.git
 ```
