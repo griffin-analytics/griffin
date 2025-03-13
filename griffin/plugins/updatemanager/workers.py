@@ -254,52 +254,29 @@ class WorkerUpdate(BaseWorker):
         self.latest_release = None
         self.update_available = False
         error_msg = None
-        url = 'https://api.github.com/repos/griffin-ide/griffin/releases'
-
-        if not is_conda_based_app():
-            self.channel = "pypi"  # Default channel if not conda
-            if is_conda_env(sys.prefix):
-                self.channel, channel_url = get_griffin_conda_channel()
-
-            # If Griffin is installed from defaults channel (pkgs/main), then
-            # use that channel to get updates. The defaults channel can be far
-            # behind our latest release.
-            if self.channel == "pkgs/main":
-                url = channel_url + '/channeldata.json'
-        github = "api.github.com" in url
-
-        headers = {}
-        token = os.getenv('GITHUB_TOKEN')
-        if running_in_ci() and token:
-            headers.update(Authorization=f"Bearer {token}")
-
-        logger.info(f"Checking for updates from {url}")
+        
+        # Use local VERSION.txt file instead of GitHub API
+        version_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), 'VERSION.txt')
+        logger.info(f"Checking for updates using local version file: {version_file}")
+        
         try:
-            page = requests.get(url, headers=headers)
-            _rate_limits(page)
-            page.raise_for_status()
-
-            data = page.json()
-            if github:
-                # Github url
-                releases = [parse(item['tag_name']) for item in data]
-            else:
-                # Conda pkgs/main url
-                griffin_data = data['packages'].get('griffin')
-                if griffin_data:
-                    releases = [parse(griffin_data["version"])]
-            releases.sort()
-
-            self._check_update_available(releases, github)
-
-        except SSLError as err:
-            error_msg = SSL_ERROR_MSG
-            logger.warning(err, exc_info=err)
-        except ConnectionError as err:
-            error_msg = CONNECT_ERROR_MSG
-            logger.warning(err, exc_info=err)
-        except HTTPError as err:
-            error_msg = HTTP_ERROR_MSG.format(status_code=page.status_code)
+            # Read the current version from VERSION.txt
+            with open(version_file, 'r') as f:
+                latest_version_str = f.read().strip()
+            
+            # Parse the version
+            latest_release = parse(latest_version_str)
+            
+            # Check if update is available
+            self.latest_release = latest_release
+            self.update_available = CURRENT_VERSION < latest_release
+            
+            logger.debug(f"Latest release from VERSION.txt: {latest_release}")
+            logger.debug(f"Update available: {self.update_available}")
+            
+        except FileNotFoundError as err:
+            error_msg = f"VERSION.txt file not found at {version_file}"
+            logger.warning(error_msg)
             logger.warning(err, exc_info=err)
         except OSError as err:
             error_msg = OS_ERROR_MSG.format(error=err)

@@ -422,6 +422,9 @@ class ShellWidget(NamepaceBrowserWidget, HelpWidget, DebuggingWidget,
         )
         self.update_syspath(paths, prioritize)
 
+        # Load the Griffin LLM extension
+        self.execute("%load_ext griffin_llm", hidden=True)
+
         run_lines = self.get_conf('startup/run_lines')
         if run_lines:
             self.execute(run_lines, hidden=True)
